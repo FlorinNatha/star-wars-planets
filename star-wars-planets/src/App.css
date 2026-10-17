@@ -1,0 +1,565 @@
+/* Main layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  flex: 1;
+}
+
+.navbar {
+  min-height: 76px;
+  padding: 16px max(20px, calc((100% - 1120px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(9, 11, 20, 0.95);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.brand-icon {
+  color: var(--accent);
+  font-size: 25px;
+}
+
+.brand-accent {
+  color: var(--accent);
+}
+
+.brand-subtitle {
+  padding-left: 10px;
+  border-left: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  color: var(--muted);
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* Hero section */
+.hero {
+  padding: 76px 0 54px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 10%,
+      rgba(98, 78, 151, 0.13),
+      transparent 65%);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero h1,
+.details-hero h1 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(34px, 6vw, 54px);
+  letter-spacing: -1.5px;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero-description {
+  max-width: 520px;
+  margin: 16px auto 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Planet list */
+.list-section {
+  padding-bottom: 64px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-heading h2,
+.details-card h2 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 25px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  transition: border-color 0.2s;
+}
+
+.search-box:focus-within {
+  border-color: var(--accent);
+}
+
+.search-icon {
+  color: var(--accent);
+  font-size: 26px;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  padding: 15px 0;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: #788096;
+}
+
+.clear-search {
+  padding: 6px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.results-count {
+  margin: 18px 0 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Planet table */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.planet-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.planet-table th {
+  padding: 17px 20px;
+  color: var(--muted);
+  background: var(--panel-light);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.planet-table td {
+  padding: 19px 20px;
+  border-top: 1px solid var(--border);
+  color: #c8ccda;
+  font-size: 13px;
+}
+
+.planet-table tbody tr {
+  transition: background 0.2s;
+}
+
+.planet-table tbody tr:hover {
+  background: #171c2b;
+}
+
+.planet-name {
+  color: var(--text);
+  font-weight: 700;
+  transition: color 0.2s;
+}
+
+.planet-name:hover,
+.details-link:hover {
+  color: var(--accent);
+}
+
+.terrain-tag {
+  display: inline-block;
+  max-width: 220px;
+  overflow: hidden;
+  padding: 5px 9px;
+  border: 1px solid #343b50;
+  border-radius: 5px;
+  color: #b7bfd3;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.details-link {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Buttons and pagination */
+.button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+.button-primary {
+  color: var(--accent-dark);
+  background: var(--accent);
+}
+
+.button-primary:not(:disabled):hover {
+  background: #ffdc7c;
+}
+
+.button-secondary {
+  border-color: var(--border);
+  color: var(--text);
+  background: var(--panel-light);
+}
+
+.button-secondary:not(:disabled):hover {
+  border-color: #59627a;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 24px;
+}
+
+.page-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Loading, error and empty states */
+.status-container {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.status-container h3 {
+  margin: 8px 0 0;
+  font-size: 18px;
+}
+
+.status-container p {
+  max-width: 430px;
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.spinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.status-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 24px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Planet details */
+.details-page {
+  padding-top: 36px;
+  padding-bottom: 60px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 34px;
+  color: var(--muted);
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.details-hero {
+  padding: 42px 0 36px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 10%,
+      rgba(98, 78, 151, 0.16),
+      transparent 70%);
+}
+
+.details-hero h1 {
+  color: var(--accent);
+}
+
+.details-hero>p:last-child {
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.details-card {
+  max-width: 780px;
+  margin: 12px auto 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.details-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.planet-symbol {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid #4a432f;
+  border-radius: 12px;
+  color: var(--accent);
+  background: #272319;
+  font-size: 25px;
+}
+
+.details-card-heading .eyebrow {
+  margin-bottom: 5px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.detail-item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 25px 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-item:nth-child(odd) {
+  border-right: 1px solid var(--border);
+}
+
+.detail-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.detail-value {
+  overflow-wrap: anywhere;
+  color: var(--text);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.details-footer {
+  padding: 18px 28px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.back-button {
+  width: fit-content;
+  display: flex;
+  margin: 26px auto 0;
+}
+
+.not-found {
+  padding-top: 100px;
+  text-align: center;
+}
+
+.not-found p {
+  margin-bottom: 24px;
+  color: var(--muted);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 24px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.footer p {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Mobile layout */
+@media (max-width: 640px) {
+  .page-container {
+    width: calc(100% - 28px);
+  }
+
+  .navbar {
+    min-height: 66px;
+    padding: 14px;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 52px 0 38px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .section-heading h2 {
+    font-size: 22px;
+  }
+
+  .planet-table th,
+  .planet-table td {
+    padding: 15px 13px;
+  }
+
+  .pagination {
+    gap: 10px;
+  }
+
+  .pagination .button {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .details-page {
+    padding-top: 24px;
+  }
+
+  .details-hero h1 {
+    font-size: 36px;
+  }
+
+  .details-card-heading {
+    padding: 20px;
+  }
+
+  .detail-item {
+    padding: 20px 16px;
+  }
+
+  .detail-value {
+    font-size: 14px;
+  }
+
+  .details-footer {
+    padding: 16px 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-item:nth-child(odd) {
+    border-right: none;
+  }
+}
